@@ -1,14 +1,48 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar class="div">
     <ion-title>
-      Ionic Blank
+      Subjects
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content class="card-background-page">
+  <ion-row>
+    <ion-col width-25 class="div">
+      <ion-card class="div">
+        <img src="../../assets/imgs/1.jpg" (tap)="submit('HtmlPage')"/>
+        <div class="card-title">Html{{html}}</div>
+        <!-- <button (click)="submit()">html</button> -->
+      </ion-card>
+    </ion-col>
+    <ion-col width-25 class="div">
+      <ion-card class="div">
+        <img src="../../assets/imgs/1.jpg" (tap)="submit(JavaPage)"/>
+        <div class="card-title">Java</div>
+        <button (click)="submit()">{{java}}</button>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col width-25 class="div">
+      <ion-card class="div">
+        <img src="../../assets/imgs/1.jpg"(tap)="submit(CssPage)"/>
+        <div class="card-title">Css</div>
+        <button (click)="submit()">{{css}}</button>
+      </ion-card>
+    </ion-col>
+
+    <ion-col width-25 class="div">
+      <ion-card class="div">
+        <img src="../../assets/imgs/1.jpg" (tap)="submit(JAVASCRIPTPage)"/>
+        <div class="card-title">Javascript</div>
+        <button (click)="submit()" class="div">Javascript:{{javascript}}</button>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  
 </ion-content>

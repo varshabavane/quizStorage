@@ -1,0 +1,43 @@
+<!--[[]]
+  Generated template for the HtmlPage page.
+
+  See http://ion[icframework.com/docs/components/#navigation for more info on
+  Ionic pages a[nd navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{html}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let q of question; index as i">
+    <ion-card-content>
+      <p>{{q.q}}</p>
+      <ion-list radio-group [disabled]="q.isDisable">
+        <ion-item>
+          <ion-label> A: {{q.A}}</ion-label>
+          <ion-radio (ionSelect)="ansChck(q.A, i)"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>B: {{q.B}}</ion-label>
+          <ion-radio (ionSelect)="ansChck(q.B, i)"></ion-radio>
+        </ion-item>
+        <ion-item *ngIf="q.C">
+          <ion-label>C: {{q.C}}</ion-label>
+          <ion-radio (ionSelect)="ansChck(q.C, i)"></ion-radio>
+        </ion-item>
+        <ion-item *ngIf="q.D">
+          <ion-label>D: {{q.D}}</ion-label>
+          <ion-radio (ionSelect)="ansChck(q.D, i)"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block outline (click)="submit()">Submit</button>
+
+
+</ion-content>

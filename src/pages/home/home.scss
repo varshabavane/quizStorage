@@ -1,3 +1,21 @@
-page-home {
+.card-background-page {
 
-}
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+  
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 4.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+  
+   .div {
+        background: linear-gradient(to bottom, #6699ff 0%, #ccffff 100%);
+    }
+  
+  }
