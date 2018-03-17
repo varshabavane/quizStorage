@@ -3,6 +3,7 @@ import { NavController } from "ionic-angular";
 import { HtmlPage } from "../html/html";
 import { JavaPage } from "../java/java";
 
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"

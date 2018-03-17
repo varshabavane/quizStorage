@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HtmlPage } from '../pages/html/html';
 import { JavaPage } from '../pages/java/java';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { JavaPage } from '../pages/java/java';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}
