@@ -10,6 +10,7 @@ import { HtmlPage } from '../pages/html/html';
 import { JavaPage } from '../pages/java/java';
 import { DataProvider } from '../providers/data/data';
 import { CssPage } from '../pages/css/css';
+import { JavascriptPage } from '../pages/javascript/javascript';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { CssPage } from '../pages/css/css';
     HtmlPage,
     JavaPage,
     CssPage,
-    //javascriptPage
+    JavascriptPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,7 @@ import { CssPage } from '../pages/css/css';
     HomePage,
     HtmlPage,
     JavaPage,
-   //javascriptPage
+   JavascriptPage
   ],
   providers: [
     StatusBar,

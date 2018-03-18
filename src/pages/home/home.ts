@@ -3,7 +3,7 @@ import { NavController } from "ionic-angular";
 import { HtmlPage } from "../html/html";
 import { JavaPage } from "../java/java";
 import { CssPage} from "../css/css";
-//import {JavascriptPage} "../../Javascript/Javascript";
+import { JavascriptPage} from "../javascript/javascript"
 
 
 
