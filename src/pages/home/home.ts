@@ -2,8 +2,9 @@ import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { HtmlPage } from "../html/html";
 import { JavaPage } from "../java/java";
-import { CssPage} from "../css/css";
-import { JavascriptPage} from "../javascript/javascript"
+import { CssPage } from "../css/css";
+import { JavascriptPage } from "../javascript/javascript";
+import { ResultPage} from "../result/result";
 
 
 
@@ -17,17 +18,21 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {}
 
-  submit() {
+  subHtml() {
     this.navCtrl.push(HtmlPage);
   }
 
-  subjava() {
+  subJava() {
     this.navCtrl.push(JavaPage);
     }
     subCss(){
       this.navCtrl.push(CssPage);
     }
-    subJS(){
-      //this.navCtrl.push(JavascriptPage);
+    subJs(){
+      this.navCtrl.push(JavascriptPage);
+    }
+    result(){
+      this.navCtrl.push(ResultPage)
+      alert("hello")
     }
 }

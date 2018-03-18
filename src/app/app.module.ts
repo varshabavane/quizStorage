@@ -11,6 +11,7 @@ import { JavaPage } from '../pages/java/java';
 import { DataProvider } from '../providers/data/data';
 import { CssPage } from '../pages/css/css';
 import { JavascriptPage } from '../pages/javascript/javascript';
+import { ResultPage } from '../pages/result/result';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { JavascriptPage } from '../pages/javascript/javascript';
     HtmlPage,
     JavaPage,
     CssPage,
-    JavascriptPage
+    JavascriptPage,
+    ResultPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    DataProvider
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +34,9 @@ import { JavascriptPage } from '../pages/javascript/javascript';
     HomePage,
     HtmlPage,
     JavaPage,
-   JavascriptPage
+    CssPage,
+   JavascriptPage,
+   ResultPage
   ],
   providers: [
     StatusBar,

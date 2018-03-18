@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-css',
   templateUrl: 'css.html',
 })
 export class CssPage {
-  counter;
+  counter=0;
   ans=[];
   question=[
     { 
@@ -123,22 +123,37 @@ export class CssPage {
   ] 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public alertCtrl:AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CssPage');
   }
-  anschk(a,i){
+  submit(){
+    let alert = this.alertCtrl.create({
+      title: 'html',
+      subTitle: 'your score is: '+this.counter,
+      buttons: ['OK']
+    });
+    alert.present();
 
-    if(a === this.question[i].ans) {
-      if(this.ans.indexOf(a) === -1){
-        this.ans.push(a);
-        this.counter=this.counter + 1;
-      }
-    }else{
-      this.counter= this.counter;
-    }
   }
+  ansChck(a,i){
+    
+    if (a === this.question[i].ans) {
+      if (this.ans.indexOf(a) === -1) {
+        this.ans.push(a);
+        this.counter = this.counter + 1;
+      }
+    } else {
+      this.counter = this.counter;
+    }
+    
+    
+    
+  }
+  }
+ 
+  
 
-}
+

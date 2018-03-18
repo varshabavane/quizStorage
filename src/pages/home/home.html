@@ -11,17 +11,15 @@
   <ion-row>
     <ion-col width-25 class="div">
       <ion-card class="div">
-        <img src="../../assets/imgs/1.jpg" (tap)="submit()"/>
+        <img src="../../assets/imgs/1.jpg" (tap)="subHtml()" />
         <div class="card-title">Html</div>
-        <!-- <button (click)="submit()">html</button> -->
       </ion-card>
     </ion-col>
+    
     <ion-col width-25 class="div">
       <ion-card class="div">
-        <img src="../../assets/imgs/1.jpg" (tap)="subjava()"/>
+        <img src="../../assets/imgs/1.jpg" (tap)="subJava()" />
         <div class="card-title">Java</div>
-        <button (click)="submit()">{{java}}</button>
-
       </ion-card>
     </ion-col>
   </ion-row>
@@ -30,19 +28,19 @@
   <ion-row>
     <ion-col width-25 class="div">
       <ion-card class="div">
-        <img src="../../assets/imgs/1.jpg"(tap)="subCss()"/>
+        <img src="../../assets/imgs/1.jpg" (tap)="subCss()" />
         <div class="card-title">Css</div>
-        <button (click)="submit()">{{css}}</button>
       </ion-card>
     </ion-col>
 
     <ion-col width-25 class="div">
       <ion-card class="div">
-        <img src="../../assets/imgs/1.jpg" (tap)="subjs()"/>
+        <img src="../../assets/imgs/1.jpg" (tap)="subJs()" />
         <div class="card-title">Javascript</div>
-        <button (click)="submit()" class="div">Javascript:{{javascript}}</button>
       </ion-card>
     </ion-col>
   </ion-row>
-  
+  Click on following button to see the result 
+  <button (click)="Result"></button>
+
 </ion-content>
