@@ -1,11 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 
 
 @Injectable()
 export class DataProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public storage: Storage) {
     console.log('Hello DataProvider Provider');
   }
 

@@ -2,6 +2,9 @@ import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { HtmlPage } from "../html/html";
 import { JavaPage } from "../java/java";
+import { CssPage} from "../css/css";
+//import {JavascriptPage} "../../Javascript/Javascript";
+
 
 
 @Component({
@@ -20,7 +23,11 @@ export class HomePage {
 
   subjava() {
     this.navCtrl.push(JavaPage);
-    
-    
-  }
+    }
+    subCss(){
+      this.navCtrl.push(CssPage);
+    }
+    subJS(){
+      //this.navCtrl.push(JavascriptPage);
+    }
 }

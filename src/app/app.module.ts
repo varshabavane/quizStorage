@@ -9,24 +9,29 @@ import { HomePage } from '../pages/home/home';
 import { HtmlPage } from '../pages/html/html';
 import { JavaPage } from '../pages/java/java';
 import { DataProvider } from '../providers/data/data';
+import { CssPage } from '../pages/css/css';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     HtmlPage,
-    JavaPage
+    JavaPage,
+    CssPage,
+    //javascriptPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    DataProvider
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     HtmlPage,
-    JavaPage
+    JavaPage,
+   //javascriptPage
   ],
   providers: [
     StatusBar,
