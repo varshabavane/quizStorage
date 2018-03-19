@@ -3,6 +3,9 @@ import { NavController, NavParams } from "ionic-angular";
 import { AlertController } from "ionic-angular";
 import { ResultPage } from "../result/result";
 
+/* import for Storing values to localStorage */
+import { DataProvider } from "../../providers/data/data";
+
 @Component({
   selector: "page-html",
   templateUrl: "html.html"
@@ -147,7 +150,8 @@ export class HtmlPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public saveData: DataProvider
   ) {}
 
   // ionViewDidLoad() {
@@ -156,14 +160,8 @@ export class HtmlPage {
   // }
 
   submit() {
-    // let alert = this.alertCtrl.create({
-    //   title: 'html',
-    //   subTitle: 'your score is: '+this.counter,
-    //   buttons: ['OK']
-
-    // });
-    // alert.present();
-    this.navCtrl.push(ResultPage, { result: this.counter });
+    this.saveData.saveResult('htmlMarks',this.counter)
+    this.navCtrl.push(ResultPage);
   }
 
   ansChck(a, i) {
@@ -176,5 +174,4 @@ export class HtmlPage {
       this.counter = this.counter;
     }
   }
-
 }
