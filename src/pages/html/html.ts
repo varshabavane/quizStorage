@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
-import { AlertController } from 'ionic-angular';
+import { AlertController } from "ionic-angular";
+import { ResultPage } from "../result/result";
 
 @Component({
   selector: "page-html",
@@ -22,10 +23,10 @@ export class HtmlPage {
     {
       q:
         "2. Which of the following input control accepts only numerical value in Web Form 2.0?",
-      a: " week",
+      A: "week",
       B: "time",
       C: "number",
-      D: " range",
+      D: "range",
       ans: "number",
 
       isDisable: "false"
@@ -128,7 +129,7 @@ export class HtmlPage {
       B: "<DD>",
       C: "<DL>",
       D: "<DS>",
-      ans:"<DL>",
+      ans: "<DL>",
       isDisable: "false"
     },
 
@@ -138,31 +139,34 @@ export class HtmlPage {
       B: "paragraph",
       C: "list",
       D: "All of these",
-      ans:"All of these",
+      ans: "All of these",
       isDisable: "false"
     }
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController
+  ) {}
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad HtmlPage");
-    // this.question = this.navParams.get('html')
+  // ionViewDidLoad() {
+  //   console.log("ionViewDidLoad HtmlPage");
+  //   // this.question = this.navParams.get('html')
+  // }
+
+  submit() {
+    // let alert = this.alertCtrl.create({
+    //   title: 'html',
+    //   subTitle: 'your score is: '+this.counter,
+    //   buttons: ['OK']
+
+    // });
+    // alert.present();
+    this.navCtrl.push(ResultPage, { result: this.counter });
   }
 
-
-  submit(){
-    let alert = this.alertCtrl.create({
-      title: 'html',
-      subTitle: 'your score is: '+this.counter,
-      buttons: ['OK']
-    });
-    alert.present();
-
-  }
-
-  ansChck(a, i){
-    
+  ansChck(a, i) {
     if (a === this.question[i].ans) {
       if (this.ans.indexOf(a) === -1) {
         this.ans.push(a);
@@ -171,8 +175,6 @@ export class HtmlPage {
     } else {
       this.counter = this.counter;
     }
-    
-    
-    
   }
+
 }

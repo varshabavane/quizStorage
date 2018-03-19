@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { ResultPage } from '../result/result';
 
 
 
@@ -10,6 +11,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 export class JavascriptPage {
 
   counter=0;
+  result;
   ans=[];
   question=[
     {
@@ -156,6 +158,8 @@ export class JavascriptPage {
       buttons: ['OK']
     });
     alert.present();
+    this.navCtrl.push(ResultPage)
+    
 
   
     

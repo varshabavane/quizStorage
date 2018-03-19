@@ -4,17 +4,13 @@ import { HtmlPage } from "../html/html";
 import { JavaPage } from "../java/java";
 import { CssPage } from "../css/css";
 import { JavascriptPage } from "../javascript/javascript";
-import { ResultPage} from "../result/result";
-
-
+import { ResultPage } from "../result/result";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-  subject;
-  quetion;
 
   constructor(public navCtrl: NavController) {}
 
@@ -24,15 +20,15 @@ export class HomePage {
 
   subJava() {
     this.navCtrl.push(JavaPage);
-    }
-    subCss(){
-      this.navCtrl.push(CssPage);
-    }
-    subJs(){
-      this.navCtrl.push(JavascriptPage);
-    }
-    result(){
-      this.navCtrl.push(ResultPage)
-      alert("hello")
-    }
+  }
+  subCss() {
+    this.navCtrl.push(CssPage);
+  }
+  subJs() {
+    this.navCtrl.push(JavascriptPage);
+  }
+  result() {
+    this.navCtrl.push(ResultPage);
+    alert("ht");
+  }
 }
