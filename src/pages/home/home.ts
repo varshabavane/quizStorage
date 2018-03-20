@@ -36,4 +36,5 @@ export class HomePage {
   subCustom(){
     this.navCtrl.push(CustomQuizPage);
   }
+  
 }

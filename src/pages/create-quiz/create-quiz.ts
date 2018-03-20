@@ -1,24 +1,30 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams, ModalController } from "ionic-angular";
+import { QuestionsPage } from "../questions/questions"; 
+import {TakeQuizPage} from "../take-quiz/take-quiz"
 
-/**
- * Generated class for the CreateQuizPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @Component({
-  selector: 'page-create-quiz',
-  templateUrl: 'create-quiz.html',
+  selector: "page-create-quiz",
+  templateUrl: "create-quiz.html"
 })
 export class CreateQuizPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateQuizPage');
+    console.log("ionViewDidLoad CreateQuizPage");
   }
-
+  addQuiz(){
+    let addModal=this.modalCtrl.create(QuestionsPage);
+    addModal.present();
+  }
+  takeQuiz(){
+    this.navCtrl.push(TakeQuizPage)
+  }
+ 
 }
