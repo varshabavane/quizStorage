@@ -5,6 +5,7 @@ import { JavaPage } from "../java/java";
 import { CssPage } from "../css/css";
 import { JavascriptPage } from "../javascript/javascript";
 import { ResultPage } from "../result/result";
+import { CustomQuizPage } from "../custom-quiz/custom-quiz";
 
 @Component({
   selector: "page-home",
@@ -33,6 +34,6 @@ export class HomePage {
   }
 
   subCustom(){
-    alert("Hello subCustom Works")
+    this.navCtrl.push(CustomQuizPage);
   }
 }

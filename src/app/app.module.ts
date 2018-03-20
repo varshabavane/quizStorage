@@ -14,6 +14,7 @@ import { DataProvider } from "../providers/data/data"; /* for storing result dat
 import { CssPage } from "../pages/css/css";
 import { JavascriptPage } from "../pages/javascript/javascript";
 import { ResultPage } from "../pages/result/result";
+import { CustomQuizPage } from "../pages/custom-quiz/custom-quiz";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ResultPage } from "../pages/result/result";
     JavaPage,
     CssPage,
     JavascriptPage,
-    ResultPage
+    ResultPage,
+    CustomQuizPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp), IonicStorageModule.forRoot()],
   bootstrap: [IonicApp],
@@ -34,7 +36,8 @@ import { ResultPage } from "../pages/result/result";
     JavaPage,
     CssPage,
     JavascriptPage,
-    ResultPage
+    ResultPage,
+    CustomQuizPage
   ],
   providers: [
     StatusBar,
