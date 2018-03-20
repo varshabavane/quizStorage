@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>customQuiz</ion-title>
+    <ion-title>custom Quiz</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="../../assets/imgs/1.jpg" (tap)="createQuiz()"/>
+    <div class="card-title">Create Quiz</div>
+  </ion-card>
+
+  <ion-card>
+    <img src="../../assets/imgs/1.jpg" (tap)="takequiz()"/>
+    <div class="card-title">Take Quiz</div>
+  </ion-card>
 
 </ion-content>

@@ -1,24 +1,19 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { CreateQuizPage } from "../create-quiz/create-quiz";
 
-/**
- * Generated class for the CustomQuizPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
-  selector: 'page-custom-quiz',
-  templateUrl: 'custom-quiz.html',
+  selector: "page-custom-quiz",
+  templateUrl: "custom-quiz.html"
 })
 export class CustomQuizPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomQuizPage');
+    console.log("ionViewDidLoad CustomQuizPage");
   }
-
+  createQuiz() {
+    this.navCtrl.push(CreateQuizPage);
+  }
 }

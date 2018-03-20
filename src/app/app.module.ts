@@ -15,6 +15,7 @@ import { CssPage } from "../pages/css/css";
 import { JavascriptPage } from "../pages/javascript/javascript";
 import { ResultPage } from "../pages/result/result";
 import { CustomQuizPage } from "../pages/custom-quiz/custom-quiz";
+import { CreateQuizPage } from "../pages/create-quiz/create-quiz";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CustomQuizPage } from "../pages/custom-quiz/custom-quiz";
     CssPage,
     JavascriptPage,
     ResultPage,
-    CustomQuizPage
+    CustomQuizPage,
+    CreateQuizPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp), IonicStorageModule.forRoot()],
   bootstrap: [IonicApp],
@@ -37,7 +39,8 @@ import { CustomQuizPage } from "../pages/custom-quiz/custom-quiz";
     CssPage,
     JavascriptPage,
     ResultPage,
-    CustomQuizPage
+    CustomQuizPage,
+    CreateQuizPage
   ],
   providers: [
     StatusBar,
