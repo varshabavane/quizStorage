@@ -9,22 +9,17 @@
 <ion-content class="card-background-page">
 
   <ion-card>
-    <img src="../../assets/imgs/3.jpg" />
-    <div class="card-title">
-      <p style="size:4" *ngIf="html != '' && html != undefined">Your Score in HTML is: {{html}}</p>
-      <br>
-      <p style="size:4" *ngIf="java != '' && java != undefined">Your Score in Java is: {{java}}</p>
-      <br>
-      <p style="size:4" *ngIf="css != '' && css != undefined">Your Score in Css is: {{css}}</p>
-      <br>
-      <p style="size:4" *ngIf="javascript != '' && javascript != undefined">Your Score in Javascript is: {{javascript}}</p>
-    </div>
-    <!-- <br>
-    <br>
-    <br>
-    <div class="card-subtitle" *ngIf="html != '' && html != undefined">Your Score in HTML is: {{html}}</div>
-  
-    <div class="card-subtitle" *ngIf="java != '' && java != undefined">Your Score in Java is: {{java}}</div> -->
+    <img src="../../assets/imgs/res1.jpg" />
+    <ion-card-content>
+      <ion-item *ngIf="html != '' && html != undefined" (tap)="clearResult('htmlMarks')">Your Score in HTML is: {{html}}</ion-item>
+
+      <ion-item *ngIf="java != '' && java != undefined" (tap)="clearResult('javaMarks')">Your Score in Java is: {{java}}</ion-item>
+
+      <ion-item *ngIf="css != '' && css != undefined" (tap)="clearResult('cssMarks')">Your Score in Css is: {{css}}</ion-item>
+
+      <ion-item *ngIf="javascript != '' && javascript != undefined" (tap)="clearResult('jsMarks')">Your Score in Javascript is: {{javascript}}</ion-item>
+    </ion-card-content>
+    
   </ion-card>
 
 </ion-content>

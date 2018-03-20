@@ -9,14 +9,14 @@
 
 <ion-content class="card-background-page">
   <ion-row>
-    <ion-col width-25 class="div">
+    <ion-col col-6 class="div">
       <ion-card class="div">
         <img src="../../assets/imgs/1.jpg" (tap)="subHtml()" />
         <div class="card-title">Html</div>
       </ion-card>
     </ion-col>
-    
-    <ion-col width-25 class="div">
+
+    <ion-col col-6 class="div">
       <ion-card class="div">
         <img src="../../assets/imgs/1.jpg" (tap)="subJava()" />
         <div class="card-title">Java</div>
@@ -26,21 +26,36 @@
 
 
   <ion-row>
-    <ion-col width-25 class="div">
+    <ion-col col-6 class="div">
       <ion-card class="div">
         <img src="../../assets/imgs/1.jpg" (tap)="subCss()" />
         <div class="card-title">Css</div>
       </ion-card>
     </ion-col>
 
-    <ion-col width-25 class="div">
+    <ion-col col-6 class="div">
       <ion-card class="div">
         <img src="../../assets/imgs/1.jpg" (tap)="subJs()" />
         <div class="card-title">Javascript</div>
       </ion-card>
     </ion-col>
   </ion-row>
-  <p style="color:brown"></p>Click on following button to see the result <br>
-  <button ion-button full (click)="result()">Result</button>
+
+  <ion-row>
+    <ion-col col-6 class="div">
+      <ion-card class="div">
+        <img src="../../assets/imgs/result.jpg" (tap)="result()" />
+        <div class="card-title"></div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col col-6 class="div">
+      <ion-card class="div">
+        <img src="../../assets/imgs/1.jpg" (tap)="subCustom()" />
+        <div class="card-title">Create Quiz</div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
 
 </ion-content>

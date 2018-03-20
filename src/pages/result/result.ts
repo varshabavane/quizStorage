@@ -43,8 +43,13 @@ export class ResultPage {
     this.dataProvider.getResult('cssMarks').then(x=>{
       this.css = x;
     })
-    
+  }
 
-
+  clearResult(subName){
+    this.dataProvider.clearResultData(subName);
+    this.dataProvider.getResult(subName).then(x => {
+      this.html = x;
+      console.log(x);
+    });
   }
 }

@@ -29,6 +29,10 @@ export class HomePage {
   }
   result() {
     this.navCtrl.push(ResultPage);
-    alert("ht");
+    
+  }
+
+  subCustom(){
+    alert("Hello subCustom Works")
   }
 }

@@ -18,19 +18,19 @@
       <p>{{q.q}}</p>
       <ion-list radio-group [disabled]="q.isDisable">
         <ion-item>
-          <ion-label> A: {{q.A}}</ion-label>
+          <ion-label> A: {{q.A | json}}</ion-label>
           <ion-radio (ionSelect)="ansChck(q.A, i)"></ion-radio>
         </ion-item>
         <ion-item>
-          <ion-label>B: {{q.B}}</ion-label>
+          <ion-label>B: {{q.B | json}}</ion-label>
           <ion-radio (ionSelect)="ansChck(q.B, i)"></ion-radio>
         </ion-item>
         <ion-item *ngIf="q.C">
-          <ion-label>C: {{q.C}}</ion-label>
+          <ion-label>C: {{q.C | json}}</ion-label>
           <ion-radio (ionSelect)="ansChck(q.C, i)"></ion-radio>
         </ion-item>
         <ion-item *ngIf="q.D">
-          <ion-label>D: {{q.D}}</ion-label>
+          <ion-label>D: {{q.D | json}}</ion-label>
           <ion-radio (ionSelect)="ansChck(q.D, i)"></ion-radio>
         </ion-item>
       </ion-list>

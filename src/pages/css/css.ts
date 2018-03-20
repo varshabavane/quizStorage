@@ -142,7 +142,7 @@ export class CssPage {
     //buttons: ['OK']
     //});
     //alert.present();
-    this.saveData.saveResult("javaMarks", this.counter);
+    this.saveData.saveResult("cssMarks", this.counter);
     this.navCtrl.push(ResultPage)
   }
   ansChck(a, i) {

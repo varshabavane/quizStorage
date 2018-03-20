@@ -19,7 +19,7 @@ export class DataProvider {
   }
 
   clearResultData(key){
-    return this.storage.remove('')
+    return this.storage.remove(key).then(a=>{console.log(a)})
   }
 
   deleteData(){
