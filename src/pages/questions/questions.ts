@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the QuestionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController, NavParams, Modal, ModalController } from 'ionic-angular';
 
 @Component({
   selector: 'page-questions',
@@ -14,11 +7,27 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class QuestionsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 
+  questions=[
+    {
+      q:"",
+      A:"",
+      B:"",
+      C:"",
+      D:"",
+      ans:"",
+    }
+  ]
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modal:ModalController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuestionsPage');
   }
+   saveItem(){
+     this.questions=this.navParams.get('question')
+
+   }
 
 }

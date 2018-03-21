@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController, NavParams, ModalController } from "ionic-angular";
 import { QuestionsPage } from "../questions/questions"; 
 import {TakeQuizPage} from "../take-quiz/take-quiz"
+import { DataProvider } from "../../providers/data/data";
 
 
 
@@ -10,21 +11,44 @@ import {TakeQuizPage} from "../take-quiz/take-quiz"
   templateUrl: "create-quiz.html"
 })
 export class CreateQuizPage {
+  questions=[];
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController
-  ) {}
+    public modalCtrl: ModalController,
+    public data: DataProvider
+  ) {
+    //this.data.().then(Quest => {
+    //if(Quest){
+      //this.questions=Quest
+    }
+    
+   // }
+  //}
+    
+  
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad CreateQuizPage");
   }
   addQuiz(){
     let addModal=this.modalCtrl.create(QuestionsPage);
-    addModal.present();
-  }
+    addModal.onDidDismiss(Quest=>{
+      if(Quest){
+        this.saveQuiz(Quest);
+      }
+    }) 
+   addModal.present()
+  } 
+
+  saveQuiz(q){
+    this.questions.push(this.questions)
+    //this.data.save(this.questions)
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
   takeQuiz(){
-    this.navCtrl.push(TakeQuizPage)
+   this.navCtrl.push(TakeQuizPage)
   }
+  
  
 }

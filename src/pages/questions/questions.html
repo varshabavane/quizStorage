@@ -1,9 +1,3 @@
-<!--
-  Generated template for the QuestionsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -11,8 +5,35 @@
   </ion-navbar>
 
 </ion-header>
+<ion-content>
 
+  <ion-list>
+    <ion-item>
+      <ion-label floating style="color:brown">Q:</ion-label>
+      <ion-input type="text" [(ngModel)]="q"></ion-input>
+    </ion-item>
 
-<ion-content padding>
+    <ion-item>
+      <ion-label floating style="color:blue">A:</ion-label>
+      <ion-input type="text" [(ngModel)]="a"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating style="color:blue">B:</ion-label>
+      <ion-input type="text" [(ngModel)]="b"></ion-input>
+   </ion-item>
+    <ion-item>
+      <ion-label floating style="color:blue">C:</ion-label>
+      <ion-input type="text" [(ngModel)]="c"></ion-input>
+     
+    </ion-item>
+    <ion-item>
+      <ion-label floating style="color:blue">D:</ion-label>
+      <ion-input type="text" [(ngModel)]="d"></ion-input>
+     
+    </ion-item>
+
+  </ion-list>
+  <button full ion-button color="primary" (click)="saveItem()">save</button>
 
 </ion-content>
