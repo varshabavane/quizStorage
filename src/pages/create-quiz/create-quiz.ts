@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, ModalController } from "ionic-angular";
-// import { QuestionsPage } from "../questions/questions";
-// import { TakeQuizPage } from "../take-quiz/take-quiz";
+ import { QuestionsPage } from "../questions/questions";
+//import { TakeQuizPage } from "../take-quiz/take-quiz";
 import { DataProvider } from "../../providers/data/data";
 import { AddSubquizPage } from "../add-subquiz/add-subquiz";
+
 
 @Component({
   selector: "page-create-quiz",
@@ -53,5 +54,8 @@ export class CreateQuizPage {
   // }
   addquest(){
     alert("addquest function works succefully");
+    this.navCtrl.push(QuestionsPage)
   }
 }
+  
+
