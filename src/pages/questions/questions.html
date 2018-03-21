@@ -9,29 +9,37 @@
 
   <ion-list>
     <ion-item>
-      <ion-label floating style="color:brown">Q:</ion-label>
-      <ion-input type="text" [(ngModel)]="q"></ion-input>
+      <ion-label stacked style="color:brown">Q:</ion-label>
+      <ion-input type="text" [(ngModel)]="question"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating style="color:blue">A:</ion-label>
-      <ion-input type="text" [(ngModel)]="a"></ion-input>
+      <ion-label stacked style="color:blue">A:</ion-label>
+      <ion-input type="text" [(ngModel)]="optionA"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating style="color:blue">B:</ion-label>
-      <ion-input type="text" [(ngModel)]="b"></ion-input>
+      <ion-label stacked style="color:blue">B:</ion-label>
+      <ion-input type="text" [(ngModel)]="optionB"></ion-input>
    </ion-item>
     <ion-item>
-      <ion-label floating style="color:blue">C:</ion-label>
-      <ion-input type="text" [(ngModel)]="c"></ion-input>
+      <ion-label stacked style="color:blue">C:</ion-label>
+      <ion-input type="text" [(ngModel)]="optionC"></ion-input>
      
     </ion-item>
     <ion-item>
-      <ion-label floating style="color:blue">D:</ion-label>
-      <ion-input type="text" [(ngModel)]="d"></ion-input>
+      <ion-label stacked style="color:blue">D:</ion-label>
+      <ion-input type="text" [(ngModel)]="optionD"></ion-input>
      
     </ion-item>
+    <ion-item>
+      <ion-label stacked style="color:blue">ans</ion-label>
+      <ion-input type="text" [(ngModel)]="ans"></ion-input>
+     
+    </ion-item>
+    
+
+
 
   </ion-list>
   <button full ion-button color="primary" (click)="saveItem()">save</button>

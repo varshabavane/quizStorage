@@ -1,33 +1,49 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, Modal, ModalController } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams, ViewController } from "ionic-angular";
+import { AlertController } from "ionic-angular";
 
 @Component({
-  selector: 'page-questions',
-  templateUrl: 'questions.html',
+  selector: "page-questions",
+  templateUrl: "questions.html"
 })
 export class QuestionsPage {
+  question: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  ans: string;
 
- 
-  questions=[
-    {
-      q:"",
-      A:"",
-      B:"",
-      C:"",
-      D:"",
-      ans:"",
-    }
-  ]
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modal:ModalController) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public view: ViewController
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionsPage');
+    console.log("ionViewDidLoad QuestionsPage");
   }
-   saveItem(){
-     this.questions=this.navParams.get('question')
-
-   }
-
+  saveItem() {
+    if (
+      (this.question, this.optionA, this.optionB, this.optionC, this.optionD)
+    ) {
+      let questions = {
+        question: this.question,
+        optionA: this.optionA,
+        optionB: this.optionB,
+        optionC: this.optionC,
+        optionD: this.optionD,
+        ans: this.ans
+      };
+      this.view.dismiss(questions);
+    } else {
+      let alert = this.alertCtrl.create({
+        title: "Empty String",
+        subTitle: "Please fill out the details in form",
+        buttons: ["OK"]
+      });
+      return alert.present();
+    }
+  }
 }

@@ -17,7 +17,8 @@ import { ResultPage } from "../pages/result/result";
 import { CustomQuizPage } from "../pages/custom-quiz/custom-quiz";
 import { CreateQuizPage } from "../pages/create-quiz/create-quiz";
 import { QuestionsPage } from "../pages/questions/questions";
-import {TakeQuizPage} from "../pages/take-quiz/take-quiz"
+import { TakeQuizPage } from "../pages/take-quiz/take-quiz";
+import { AddSubquizPage } from "../pages/add-subquiz/add-subquiz";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {TakeQuizPage} from "../pages/take-quiz/take-quiz"
     CustomQuizPage,
     CreateQuizPage,
     QuestionsPage,
-    TakeQuizPage
+    TakeQuizPage,
+    AddSubquizPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import {TakeQuizPage} from "../pages/take-quiz/take-quiz"
     CustomQuizPage,
     CreateQuizPage,
     QuestionsPage,
-    TakeQuizPage
+    TakeQuizPage,
+    AddSubquizPage
   ],
   providers: [
     StatusBar,
