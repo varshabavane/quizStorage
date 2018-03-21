@@ -51,4 +51,7 @@ export class CreateQuizPage {
   // takeQuiz() {
   //   this.navCtrl.push(TakeQuizPage);
   // }
+  addquest(){
+    alert("addquest function works succefully");
+  }
 }
