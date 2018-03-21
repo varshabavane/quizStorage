@@ -1,15 +1,16 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, ModalController } from "ionic-angular";
-import { QuestionsPage } from "../questions/questions";
-import { TakeQuizPage } from "../take-quiz/take-quiz";
+// import { QuestionsPage } from "../questions/questions";
+// import { TakeQuizPage } from "../take-quiz/take-quiz";
 import { DataProvider } from "../../providers/data/data";
+import { AddSubquizPage } from "../add-subquiz/add-subquiz";
 
 @Component({
   selector: "page-create-quiz",
   templateUrl: "create-quiz.html"
 })
 export class CreateQuizPage {
-  questions = [];
+  subjects = [];
 
   constructor(
     public navCtrl: NavController,
@@ -21,21 +22,33 @@ export class CreateQuizPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad CreateQuizPage");
   }
-  addQuiz() {
-    let addModal = this.modalCtrl.create(QuestionsPage);
-    addModal.onDidDismiss(Quest => {
-      if (Quest) {
-        this.saveQuiz(Quest);
+  addSub() {
+    let addSubModal = this.modalCtrl.create(AddSubquizPage);
+    addSubModal.onDidDismiss(sub => {
+      if (sub) {
+        this.subjects.push(sub);
       }
     });
-    addModal.present();
+    addSubModal.present();
   }
 
-  saveQuiz(q) {
-    this.questions.push(this.questions);
-    //this.data.save(this.questions)
+  addQuestionToSub(i){
+    alert("Hello World" + this.subjects[i].subName)
   }
-  takeQuiz() {
-    this.navCtrl.push(TakeQuizPage);
-  }
+  // let addModal = this.modalCtrl.create(QuestionsPage);
+  //addModal.onDidDismiss(Quest => {
+  //if (Quest) {
+  //this.saveQuiz(Quest);
+  //}
+  //});
+  //addModal.present();
+  //}
+
+  // saveQuiz(q) {
+  //   this.questions.push(this.questions);
+  //this.data.save(this.questions)
+  // }
+  // takeQuiz() {
+  //   this.navCtrl.push(TakeQuizPage);
+  // }
 }
