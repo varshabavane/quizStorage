@@ -39,7 +39,7 @@ export class CreateQuizPage {
   // let addModal = this.modalCtrl.create(QuestionsPage);
   //addModal.onDidDismiss(Quest => {
   //if (Quest) {
-  //this.saveQuiz(Quest);
+  //this.saveQuiz(Quest);e
   //}
   //});
   //addModal.present();

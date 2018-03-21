@@ -19,6 +19,7 @@ import { CreateQuizPage } from "../pages/create-quiz/create-quiz";
 import { QuestionsPage } from "../pages/questions/questions";
 import { TakeQuizPage } from "../pages/take-quiz/take-quiz";
 import { AddSubquizPage } from "../pages/add-subquiz/add-subquiz";
+import {ShowQuizPage} from "../pages/show-quiz/show-quiz";
 
 @NgModule({
   declarations: [
