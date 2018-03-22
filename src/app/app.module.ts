@@ -34,7 +34,8 @@ import {ShowQuizPage} from "../pages/show-quiz/show-quiz";
     CreateQuizPage,
     QuestionsPage,
     TakeQuizPage,
-    AddSubquizPage
+    AddSubquizPage,
+    ShowQuizPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import {ShowQuizPage} from "../pages/show-quiz/show-quiz";
     CreateQuizPage,
     QuestionsPage,
     TakeQuizPage,
-    AddSubquizPage
+    AddSubquizPage,
+    ShowQuizPage
   ],
   providers: [
     StatusBar,
