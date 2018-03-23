@@ -15,6 +15,7 @@ export class ShowQuizPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public data: DataProvider
+    
   ) {}
 
   ionViewDidLoad() {
@@ -36,6 +37,7 @@ export class ShowQuizPage {
   }
   saveQuiz() {
     // this.questions.push(this.questions);
+    alert("submit button workssuccefully")
     this.subjectName = this.navParams.get("sub").subName;
     let subQuiz = {
       [this.subjectName]: {
@@ -47,4 +49,6 @@ export class ShowQuizPage {
 
     this.data.saveCustomQuiz(subQuiz);
   }
+
+  
 }

@@ -51,4 +51,7 @@ export class QuestionsPage {
   //   this.navCtrl.push(ShowQuizPage)
     
   // }
+  close(){
+    this.view.dismiss()
+  }
 }

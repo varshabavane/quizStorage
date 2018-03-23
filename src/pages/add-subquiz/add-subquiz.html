@@ -6,12 +6,16 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>addSubquiz</ion-title>
-  </ion-navbar>
-
+  <ion-toolbar color="primary">
+    <ion-title>addSubQuiz</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  
+</ion-toolbar>
 </ion-header>
-
 
 <ion-content padding>
   <ion-list>

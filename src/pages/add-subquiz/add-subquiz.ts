@@ -41,4 +41,7 @@ export class AddSubquizPage {
       return alert.present();
     }
   }
+  close(){
+    this.view.dismiss()
+  }
 }
