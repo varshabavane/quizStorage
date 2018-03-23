@@ -41,6 +41,7 @@ export class AddSubquizPage {
       return alert.present();
     }
   }
+  //close function added to closing subquizmodule.
   close(){
     this.view.dismiss()
   }
