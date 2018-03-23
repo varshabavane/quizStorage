@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, ViewController } from "ionic-angular";
 import { AlertController } from "ionic-angular";
-import { ShowQuizPage } from "../show-quiz/show-quiz";
+// import { ShowQuizPage } from "../show-quiz/show-quiz";
 
 @Component({
   selector: "page-questions",
@@ -47,8 +47,8 @@ export class QuestionsPage {
       return alert.present();
     }
   }
-  showQuiz(){
-    this.navCtrl.push(ShowQuizPage)
+  // showQuiz(){
+  //   this.navCtrl.push(ShowQuizPage)
     
-  }
+  // }
 }

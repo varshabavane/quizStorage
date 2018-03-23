@@ -13,6 +13,7 @@ export class CustomQuizPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad CustomQuizPage");
+    
   }
   createQuiz() {
     this.navCtrl.push(CreateQuizPage);

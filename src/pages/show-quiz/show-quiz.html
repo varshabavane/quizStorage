@@ -14,5 +14,15 @@
 
 
 <ion-content padding>
-
+ <!-- <ion-list>
+   <ion-item *ngFor="let q of questions, i as index">
+     <p>Question</p>
+   </ion-item>
+ </ion-list> -->
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="addQuest()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <button (click)="saveQuiz()">submit</button>
 </ion-content>

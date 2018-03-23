@@ -17,6 +17,9 @@ export class DataProvider {
   saveResult(key, data){
     return this.storage.set(key, data)
   }
+  saveCustomQuiz(data){
+    return this.storage.set('CustomQuiz',data)
+  }
 
   clearResultData(key){
     return this.storage.remove(key).then(a=>{console.log(a)})
