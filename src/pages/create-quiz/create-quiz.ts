@@ -23,6 +23,17 @@ export class CreateQuizPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad CreateQuizPage");
   }
+  ionViewWillEnter() {
+    this.data.getCustomQuiz().then(sub => {
+      if (sub) {
+        this.subjects.push(sub);
+        console.log("sub: " + JSON.stringify(this.subjects));
+        this.subjects.forEach(a => {
+          console.log("hello " + Object.keys(a));
+        });
+      }
+    });
+  }
   addSub() {
     let addSubModal = this.modalCtrl.create(AddSubquizPage);
     addSubModal.onDidDismiss(sub => {
@@ -40,6 +51,6 @@ export class CreateQuizPage {
     this.navCtrl.push(TakeQuizPage);
   }
   showQuiz(i) {
-    this.navCtrl.push(ShowQuizPage, {sub: this.subjects[i]});
+    this.navCtrl.push(ShowQuizPage, { sub: this.subjects[i] });
   }
 }

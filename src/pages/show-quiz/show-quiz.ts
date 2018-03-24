@@ -30,8 +30,8 @@ export class ShowQuizPage {
       if (a) {
         this.test = a;
         console.log("local data: " + this.test);
-        this.questions.push(this.test.d.questions);
-        console.log(this.questions)
+        //this.questions.push(this.test.d.questions);
+        //console.log(this.questions)
        
       }
     });
