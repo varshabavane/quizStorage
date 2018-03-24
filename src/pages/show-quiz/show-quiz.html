@@ -1,16 +1,12 @@
-
 <ion-header>
-
-  <ion-toolbar color="primary">
+  <ion-navbar>
     <ion-title>ShowQuiz</ion-title>
-    
-  
-</ion-toolbar>
+  </ion-navbar>
 </ion-header>
 
 
 <ion-content>
- <!-- <ion-list>
+  <!-- <ion-list>
    <ion-item *ngFor="let q of questions, i as index">
      <p>Question</p>
    </ion-item>
@@ -20,5 +16,5 @@
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
-  <button (click)="saveQuiz()">submit</button>
+  <button ion-button color="secondary" (click)="saveQuiz()">submit</button>
 </ion-content>

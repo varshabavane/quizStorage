@@ -4,28 +4,35 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DataProvider {
-  
+
 
   constructor(public storage: Storage) {
     console.log('Hello DataProvider Provider');
   }
 
-  getResult(key){
+  getResult(key) {
     return this.storage.get(key)
   }
 
-  saveResult(key, data){
+  saveResult(key, data) {
     return this.storage.set(key, data)
   }
-  saveCustomQuiz(data){
-    return this.storage.set('CustomQuiz',data)
+
+  /* For Saving Custom Quiz data with subject Name and Question set */
+  saveCustomQuiz(data) {
+    return this.storage.set('CustomQuiz', data)
   }
 
-  clearResultData(key){
-    return this.storage.remove(key).then(a=>{console.log(a)})
+  /* To get data from local storage for custom quiz*/
+  getCustomQuiz() {
+    return this.storage.get('CustomQuiz')
   }
 
-  deleteData(){
+  clearResultData(key) {
+    return this.storage.remove(key).then(a => { console.log(a) })
+  }
+
+  deleteData() {
     // return this.storage.clear()
   }
 
