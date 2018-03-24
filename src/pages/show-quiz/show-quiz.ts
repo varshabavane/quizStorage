@@ -22,19 +22,19 @@ export class ShowQuizPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad ShowQuizPage");
     console.log(this.navParams.get("sub"));
-    
+
   }
 
   ionViewWillEnter() {
     this.data.getCustomQuiz().then(a => {
-      this.test = JSON.stringify(a);
-      console.log("local data: " + this.test)
+      if (a) {
+        this.test = a;
+        console.log("local data: " + this.test);
+        this.questions.push(this.test.d.questions);
+        console.log(this.questions)
+       
+      }
     });
-
-    if (this.test) {
-      this.questions.push(this.test.d.questions)
-      console.log("Hello Questions: " + this.questions)
-    }
   }
 
   addQuest() {
@@ -44,7 +44,7 @@ export class ShowQuizPage {
         this.questions.push(Quest);
 
         this.data.getCustomQuiz().then(a => {
-          this.test = JSON.stringify(a);
+          this.test = a;
           console.log("local data: " + this.test)
         });
       }
