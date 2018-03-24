@@ -10,20 +10,31 @@ import { DataProvider } from "../../providers/data/data";
 export class ShowQuizPage {
   questions = [];
   subjectName;
+  test;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public data: DataProvider
-    
-  ) {}
+
+  ) { }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad ShowQuizPage");
     console.log(this.navParams.get("sub"));
-    // this.subjectName = this.navParams.get('sub').subName
-    // this.SubQuiz
-    // console.log(this.SubQuiz)
+    
+  }
+
+  ionViewWillEnter() {
+    this.data.getCustomQuiz().then(a => {
+      this.test = JSON.stringify(a);
+      console.log("local data: " + this.test)
+    });
+
+    if (this.test) {
+      this.questions.push(this.test.d.questions)
+      console.log("Hello Questions: " + this.questions)
+    }
   }
 
   addQuest() {
@@ -31,24 +42,29 @@ export class ShowQuizPage {
     addModal.onDidDismiss(Quest => {
       if (Quest) {
         this.questions.push(Quest);
+
+        this.data.getCustomQuiz().then(a => {
+          this.test = JSON.stringify(a);
+          console.log("local data: " + this.test)
+        });
       }
     });
     addModal.present();
   }
   saveQuiz() {
     // this.questions.push(this.questions);
-    alert("submit button workssuccefully")
+    // alert("submit button workssuccefully")
     this.subjectName = this.navParams.get("sub").subName;
     let subQuiz = {
       [this.subjectName]: {
         subName: this.navParams.get("sub").subName,
         subDesc: this.navParams.get("sub").description,
-        questions: [this.questions]
+        questions: this.questions
       }
     };
 
     this.data.saveCustomQuiz(subQuiz);
   }
 
-  
+
 }
