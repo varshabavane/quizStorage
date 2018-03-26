@@ -5,6 +5,7 @@ import { TakeQuizPage } from "../take-quiz/take-quiz";
 import { DataProvider } from "../../providers/data/data";
 import { AddSubquizPage } from "../add-subquiz/add-subquiz";
 import { ShowQuizPage } from "../show-quiz/show-quiz";
+import { SubData } from "../../model/subData";
 
 @Component({
   selector: "page-create-quiz",
@@ -12,6 +13,7 @@ import { ShowQuizPage } from "../show-quiz/show-quiz";
 })
 export class CreateQuizPage {
   subjects = [];
+  subQuizdata: SubData;
 
   constructor(
     public navCtrl: NavController,
@@ -26,31 +28,57 @@ export class CreateQuizPage {
   ionViewWillEnter() {
     this.data.getCustomQuiz().then(sub => {
       if (sub) {
-        this.subjects.push(sub);
-        console.log("sub: " + JSON.stringify(this.subjects));
-        this.subjects.forEach(a => {
-          console.log("hello " + Object.keys(a));
-        });
+        for (let s in sub) {
+          this.subQuizdata = {
+            subName: sub[s].subName,
+            subDesc: sub[s].subDesc,
+            subQuestions: sub[s].subQuestions
+          };
+          this.subjects.push(this.subQuizdata);
+        }
       }
     });
   }
+  
+  ionViewDidLeave() {
+    this.subjects.splice(0, this.subjects.length);
+  }
+
   addSub() {
     let addSubModal = this.modalCtrl.create(AddSubquizPage);
     addSubModal.onDidDismiss(sub => {
-      if (sub) {
-        this.saveQuiz(sub);
-      }
+      this.subQuizdata = {
+        subName: sub.subName,
+        subDesc: sub.subDesc,
+        subQuestions: []
+      };
+      this.saveQuiz(this.subQuizdata);
     });
     addSubModal.present();
   }
 
   saveQuiz(subject) {
     this.subjects.push(subject);
+    this.data.saveCustomQuiz(this.subjects);
   }
   takeQuiz() {
     this.navCtrl.push(TakeQuizPage);
   }
-  showQuiz(i) {
-    this.navCtrl.push(ShowQuizPage, { sub: this.subjects[i] });
+  showQuiz(sub, i) {
+    let showModel = this.modalCtrl.create(ShowQuizPage, {
+      quiz: {
+        sub: sub.subName,
+        dsc: sub.subDesc,
+        questions: sub.subQuestions
+      }
+    });
+    //this.navCtrl.push(ShowQuizPage, { sub: this.subjects[i] });
+    showModel.onDidDismiss(data => {
+      if (data) {
+        this.subjects[i].subQuestions = data;
+        this.data.saveCustomQuiz(this.subjects);
+      }
+    });
+    showModel.present();
   }
 }
