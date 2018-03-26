@@ -1,20 +1,48 @@
 <ion-header>
   <ion-navbar>
     <ion-title>ShowQuiz</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <!-- <ion-list>
-   <ion-item *ngFor="let q of questions, i as index">
-     <p>Question</p>
-   </ion-item>
- </ion-list> -->
+  <ion-card *ngFor="let q of questions; index as i">
+    <ion-card-content>
+      <p>{{q.questons}}</p>
+      <ion-list>
+        <ion-item>
+          <ion-label>A:{{q.optionA}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>B:{{q.optionB}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>C:{{q.optionC}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>D:{{q.optionD}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>ans:{{q.ans}}</ion-label>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
   <ion-fab right bottom>
     <button ion-fab color="secondary" (click)="addQuest()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
   <button ion-button color="secondary" (click)="saveQuiz()">submit</button>
+
 </ion-content>

@@ -29,7 +29,7 @@ export class AddSubquizPage {
     if ((this.subName, this.description)) {
       let subDetails = {
         subName: this.subName,
-        description: this.description
+        subDesc: this.description
       };
       this.view.dismiss(subDetails);
     } else {
