@@ -47,6 +47,7 @@ export class QuestionsPage {
       return alert.present();
     }
   }
+  
   // showQuiz(){
   //   this.navCtrl.push(ShowQuizPage)
     

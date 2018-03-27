@@ -14,6 +14,17 @@
 
 <ion-content>
   <ion-card *ngFor="let q of questions; index as i">
+    <ion-buttons end>
+      <button ion-button clear (click)="editQ(i)">
+        <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+        <!-- <ion-icon name="md-create"></ion-icon> -->
+      </button>
+
+      <button ion-button clear (click)="deleteQ(i)">
+        <i class="fa fa-trash-o" style="font-size:24px"></i>
+        <!-- <ion-icon name="trash"></ion-icon> -->
+      </button>
+    </ion-buttons>
     <ion-card-content>
       <p>{{q.questons}}</p>
       <ion-list>

@@ -1,7 +1,14 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, ModalController,ViewController } from "ionic-angular";
+import {
+  NavController,
+  NavParams,
+  ModalController,
+  ViewController,
+  AlertController
+} from "ionic-angular";
 import { QuestionsPage } from "../questions/questions";
 import { DataProvider } from "../../providers/data/data";
+import { TakeQuizPage } from "../take-quiz/take-quiz";
 
 @Component({
   selector: "page-show-quiz",
@@ -16,7 +23,8 @@ export class ShowQuizPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public data: DataProvider,
-    public view:ViewController
+    public view: ViewController,
+    public alertCtrl: AlertController
   ) {}
 
   ionViewDidLoad() {
@@ -46,11 +54,48 @@ export class ShowQuizPage {
     });
     addModal.present();
   }
+
   saveQuiz() {
-    // this.questions.push(this.questions);
-   this.view.dismiss(this.questions)
+    this.view.dismiss(this.questions);
   }
-  close(){
-    this.view.dismiss()
+
+  submit() {
+    this.navCtrl.push(TakeQuizPage);
+  }
+  editQ(i) {
+    let addModal = this.modalCtrl.create(QuestionsPage);
+    // addModal.onDidDismiss(Quest => {
+    //   if (Quest) {
+    //     this.questions.push(Quest);
+    //   }
+    // });
+    addModal.present();
+  }
+
+  deleteQ(i) {
+    let confirm = this.alertCtrl.create({
+      title: "Use this lightsaber?",
+      message:
+        "Do you agree to use this lightsaber to do good across the intergalactic galaxy?",
+      buttons: [
+        {
+          text: "Disagree",
+          handler: () => {
+            console.log("Disagree clicked");
+          }
+        },
+        {
+          text: "Agree",
+          handler: () => {
+            console.log("Agree clicked");
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }     
+
+  close() {
+    this.view.dismiss();
   }
 }
