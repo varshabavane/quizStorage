@@ -36,7 +36,8 @@ import { ExamQuestPage } from "../pages/exam-quest/exam-quest";
     QuestionsPage,
     TakeQuizPage,
     AddSubquizPage,
-    ShowQuizPage
+    ShowQuizPage,
+    ExamQuestPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,8 @@ import { ExamQuestPage } from "../pages/exam-quest/exam-quest";
     QuestionsPage,
     TakeQuizPage,
     AddSubquizPage,
-    ShowQuizPage
+    ShowQuizPage,
+    ExamQuestPage
   ],
   providers: [
     StatusBar,

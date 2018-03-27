@@ -14,5 +14,29 @@
 
 
 <ion-content padding>
+  <ion-card *ngFor="let q of question; index as i">
+    <ion-card-content>
+      <p>{{q.question}}</p>
+      <ion-list radio-group>
+        <ion-item>
+          <ion-label> A: {{q.optionA}}</ion-label>
+          <!-- <ion-radio (ionSelect)="ansChck(q.A, i)"></ion-radio> -->
+        </ion-item>
+        <ion-item>
+          <ion-label>B: {{q.optionB}}</ion-label>
+          <!-- <ion-radio (ionSelect)="ansChck(q.B, i)"></ion-radio> -->
+        </ion-item>
+        <ion-item>
+          <ion-label>C: {{q.optionC}}</ion-label>
+          <!-- <ion-radio (ionSelect)="ansChck(q.C, i)"></ion-radio> -->
+        </ion-item>
+        <ion-item>
+          <ion-label>D: {{q.optionD}}</ion-label>
+          <!-- <ion-radio (ionSelect)="ansChck(q.D, i)"></ion-radio> -->
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block outline (click)="submit()">Submit</button>
 
 </ion-content>

@@ -1,24 +1,23 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ExamQuestPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
 @Component({
-  selector: 'page-exam-quest',
-  templateUrl: 'exam-quest.html',
+  selector: "page-exam-quest",
+  templateUrl: "exam-quest.html"
 })
 export class ExamQuestPage {
+  question = []
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ionViewDidEnter() {
+    console.log("ionViewDidLoad ExamQuestPage");
+    if (this.navParams.get("question")) {
+      // console.log(this.navParams.get("question"));
+      this.question = this.navParams.get("question")
+      console.log(this.question)
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ExamQuestPage');
-  }
+
 
 }
