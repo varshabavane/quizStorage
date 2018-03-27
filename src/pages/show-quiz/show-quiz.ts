@@ -63,37 +63,44 @@ export class ShowQuizPage {
     this.navCtrl.push(TakeQuizPage);
   }
   editQ(i) {
-    let addModal = this.modalCtrl.create(QuestionsPage);
-    // addModal.onDidDismiss(Quest => {
-    //   if (Quest) {
-    //     this.questions.push(Quest);
-    //   }
-    // });
+    let addModal = this.modalCtrl.create(QuestionsPage, {
+      question: this.questions[i]
+    });
+    addModal.onDidDismiss(Quest => {
+      if (Quest) {
+        this.questions[i].question = Quest.question;
+        this.questions[i].optionA = Quest.optionA;
+        this.questions[i].optionB = Quest.optionB;
+        this.questions[i].optionC = Quest.optionC;
+        this.questions[i].optionD = Quest.optionD;
+        this.questions[i].ans = Quest.ans;
+      }
+    });
     addModal.present();
   }
 
   deleteQ(i) {
     let confirm = this.alertCtrl.create({
-      title: "Use this lightsaber?",
-      message:
-        "Do you agree to use this lightsaber to do good across the intergalactic galaxy?",
+      title: "Do you want to Delete this question",
+      message: this.questions[i].question,
       buttons: [
         {
-          text: "Disagree",
+          text: "No",
           handler: () => {
             console.log("Disagree clicked");
           }
         },
         {
-          text: "Agree",
+          text: "Yes",
           handler: () => {
             console.log("Agree clicked");
+            this.questions.splice(i,1)
           }
         }
       ]
     });
     confirm.present();
-  }     
+  }
 
   close() {
     this.view.dismiss();

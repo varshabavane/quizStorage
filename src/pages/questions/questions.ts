@@ -25,6 +25,17 @@ export class QuestionsPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad QuestionsPage");
   }
+  ionViewDidEnter() {
+    if (this.navParams.get("question")) {
+      this.question = this.navParams.get("question").question;
+      this.optionA = this.navParams.get("question").optionA;
+      this.optionB = this.navParams.get("question").optionB;
+      this.optionC = this.navParams.get("question").optionC;
+      this.optionD = this.navParams.get("question").optionD;
+      this.ans = this.navParams.get("question").ans;
+    }
+  }
+  
   saveItem() {
     if (
       (this.question, this.optionA, this.optionB, this.optionC, this.optionD)
@@ -47,12 +58,12 @@ export class QuestionsPage {
       return alert.present();
     }
   }
-  
+
   // showQuiz(){
   //   this.navCtrl.push(ShowQuizPage)
-    
+
   // }
-  close(){
-    this.view.dismiss()
+  close() {
+    this.view.dismiss();
   }
 }

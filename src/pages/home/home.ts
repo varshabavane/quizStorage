@@ -7,6 +7,7 @@ import { JavascriptPage } from "../javascript/javascript";
 import { ResultPage } from "../result/result";
 import { CustomQuizPage } from "../custom-quiz/custom-quiz";
 
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"

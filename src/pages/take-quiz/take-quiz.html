@@ -14,30 +14,20 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let q of question; index as i">
-    <ion-card-content>
-      <p>{{q.q}}</p>
-      <ion-list radio-group>
-        <ion-item>
-          <ion-label> A: {{q.A}}</ion-label>
-          <ion-radio (ionSelect)="ansChck(q.A, i)"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>B: {{q.B}}</ion-label>
-          <ion-radio (ionSelect)="ansChck(q.B, i)"></ion-radio>
-        </ion-item>
-        <ion-item *ngIf="q.C">
-          <ion-label>C: {{q.C}}</ion-label>
-          <ion-radio (ionSelect)="ansChck(q.C, i)"></ion-radio>
-        </ion-item>
-        <ion-item *ngIf="q.D">
-          <ion-label>D: {{q.D}}</ion-label>
-          <ion-radio (ionSelect)="ansChck(q.D, i)"></ion-radio>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-  <button ion-button block outline (click)="submit()">Submit</button>
+
+    <ion-content class="card-background-page">
+        <ion-row *ngFor="let sub of subjects, index as i">
+          <ion-col col-6>
+            <ion-card (tap)="showQuiz(sub,i)">
+      
+              <img src="../../assets/imgs/1.jpg"  (tap)="examQuiz()"/>
+              <div class="card-title"> {{sub.subName}}</div>
+              <div class="card-subtitle">{{sub.subDesc}}</div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        
+  
 
 
 </ion-content>

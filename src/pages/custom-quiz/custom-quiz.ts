@@ -19,6 +19,7 @@ export class CustomQuizPage {
     this.navCtrl.push(CreateQuizPage);
   }
   takeQuiz(){
-    this.navCtrl.push(TakeQuizPage);
+  this.navCtrl.push(TakeQuizPage);
+  
   }
 }

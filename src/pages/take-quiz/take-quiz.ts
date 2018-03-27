@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ResultPage } from '../result/result'
 import { DataProvider } from '../../providers/data/data';
+import { ExamQuestPage } from '../exam-quest/exam-quest';
 
 /**
  * Generated class for the TakeQuizPage page.
@@ -18,6 +19,9 @@ export class TakeQuizPage {
   counter=0;
   ans=[];
   result;
+  sub;
+  subQuizdata;
+  subjects;
 
   question=[
     {
@@ -34,14 +38,37 @@ export class TakeQuizPage {
 
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public saveData:DataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public data:DataProvider) {
   }
 
   ionViewDidLoad() {
+
   }
+  examQuiz(){
+    this.navCtrl.push(ExamQuestPage)
+  }
+  ionViewWillEnter(){
+    this.data.getCustomQuiz().then(sub => {
+      if (sub) {
+        for (let s in sub) {
+          this.subQuizdata = {
+            subName: sub[s].subName,
+            subDesc: sub[s].subDesc,
+            subQuestions: sub[s].subQuestions
+          };
+          this.subjects.push(this.subQuizdata);
+        }
+      }
+    });
+  }  
+  ionViewDidLeave() {
+    this.subjects.splice(0, this.subjects.length);
+  }                                                                                                                                                                                      
+  
+  
 
   submit(){
-    this.saveData.saveResult("marks", this.counter)
+    this.data.saveResult("marks", this.counter)
     this.navCtrl.push(ResultPage);
 
   }
