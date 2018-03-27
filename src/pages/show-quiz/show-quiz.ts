@@ -68,13 +68,16 @@ export class ShowQuizPage {
     });
     addModal.onDidDismiss(Quest => {
       if (Quest) {
-        this.questions[i].question = Quest.question;
-        this.questions[i].optionA = Quest.optionA;
-        this.questions[i].optionB = Quest.optionB;
-        this.questions[i].optionC = Quest.optionC;
-        this.questions[i].optionD = Quest.optionD;
-        this.questions[i].ans = Quest.ans;
-      }
+        if(Quest !=undefined && Quest != null){
+          this.questions[i].question = Quest.question;
+          this.questions[i].optionA = Quest.optionA;
+          this.questions[i].optionB = Quest.optionB;
+          this.questions[i].optionC = Quest.optionC;
+          this.questions[i].optionD = Quest.optionD;
+          this.questions[i].ans = Quest.ans;
+        }
+        }
+        
     });
     addModal.present();
   }
