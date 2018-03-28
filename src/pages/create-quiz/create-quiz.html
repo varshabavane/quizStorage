@@ -7,10 +7,21 @@
 </ion-header>
 <ion-content class="card-background-page">
   <ion-row *ngFor="let sub of subjects, index as i">
-    <ion-col col-6>
-      <ion-card (tap)="showQuiz(sub,i)">
+   
 
-        <img src="../../assets/imgs/1.jpg" />
+    <ion-col col-6>
+      <ion-card >
+          <ion-buttons end>
+              <button ion-button clear (click)="editSub(i)">
+                <i class="fa fa-pencil-square-o" style="font-size:24px"></i>
+              </button>
+
+              <button ion-button clear (click)="deleteSub(i)">
+                  <i class="fa fa-trash-o" style="font-size:24px"></i>
+                </button>
+            </ion-buttons>
+
+        <img src="../../assets/imgs/1.jpg" (tap)="showQuiz(sub,i)" />
         <div class="card-title"> {{sub.subName}}</div>
         <div class="card-subtitle">{{sub.subDesc}}</div>
       </ion-card>

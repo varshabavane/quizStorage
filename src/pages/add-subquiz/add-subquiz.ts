@@ -12,6 +12,7 @@ import {
 })
 export class AddSubquizPage {
   subName;
+  subDesc;
   description;
 
   constructor(
@@ -20,6 +21,13 @@ export class AddSubquizPage {
     public view: ViewController,
     public alertCtrl: AlertController
   ) {}
+  ionViewDidEnter(){
+    if(this.navParams.get('subject')){
+      this.subName=this.navParams.get('subject').subName;
+      this.subDesc=this.navParams.get('subject').subDesc;
+    }
+
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad AddSubquizPage");

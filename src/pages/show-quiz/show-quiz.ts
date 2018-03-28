@@ -16,7 +16,7 @@ import { TakeQuizPage } from "../take-quiz/take-quiz";
 })
 export class ShowQuizPage {
   questions = [];
-  subjectName;
+  
 
   constructor(
     public navCtrl: NavController,
@@ -68,7 +68,7 @@ export class ShowQuizPage {
     });
     addModal.onDidDismiss(Quest => {
       if (Quest) {
-        if(Quest !=undefined && Quest != null){
+     
           this.questions[i].question = Quest.question;
           this.questions[i].optionA = Quest.optionA;
           this.questions[i].optionB = Quest.optionB;
@@ -76,7 +76,7 @@ export class ShowQuizPage {
           this.questions[i].optionD = Quest.optionD;
           this.questions[i].ans = Quest.ans;
         }
-        }
+        
         
     });
     addModal.present();

@@ -22,6 +22,32 @@ export class CreateQuizPage {
     public data: DataProvider
   ) {}
 
+  editSub(i) {
+    let submodal=this.modalCtrl.create(AddSubquizPage,{
+      subject:this.subjects[i]
+    });
+    submodal.onDidDismiss(sub => {
+      if(sub){
+        this.subjects[i].subName=sub.subName;
+        this.subjects[i].subDesc=sub.subDesc;
+
+      }
+    });
+    submodal.present();
+  }
+
+  deleteSub(){
+    alert("del")
+  }
+    // let submodal = this.modalCtrl.create(AddSubquizPage,);
+    // submodal.onDidDismiss(sub => {
+    //   if (sub) {
+    //     this.subjects.push(sub);
+    //   }
+    // });
+    // submodal.present();
+
+
   ionViewDidLoad() {
     console.log("ionViewDidLoad CreateQuizPage");
   }
@@ -39,7 +65,7 @@ export class CreateQuizPage {
       }
     });
   }
-  
+
   ionViewDidLeave() {
     this.subjects.splice(0, this.subjects.length);
   }
