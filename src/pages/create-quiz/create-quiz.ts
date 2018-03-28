@@ -1,5 +1,10 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, ModalController } from "ionic-angular";
+import {
+  NavController,
+  NavParams,
+  ModalController,
+  AlertController
+} from "ionic-angular";
 //import { QuestionsPage } from "../questions/questions";
 import { TakeQuizPage } from "../take-quiz/take-quiz";
 import { DataProvider } from "../../providers/data/data";
@@ -19,34 +24,56 @@ export class CreateQuizPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public data: DataProvider
+    public data: DataProvider,
+    public alerCtrl: AlertController
   ) {}
 
   editSub(i) {
-    let submodal=this.modalCtrl.create(AddSubquizPage,{
-      subject:this.subjects[i]
+    let submodal = this.modalCtrl.create(AddSubquizPage, {
+      subject: this.subjects[i]
     });
     submodal.onDidDismiss(sub => {
-      if(sub){
-        this.subjects[i].subName=sub.subName;
-        this.subjects[i].subDesc=sub.subDesc;
+      if (sub) {
+        this.subjects[i].subName = sub.subName;
+        this.subjects[i].subDesc = sub.subDesc;
 
+        this.data.saveCustomQuiz(this.subjects)
       }
     });
     submodal.present();
   }
 
-  deleteSub(){
-    alert("del")
+  deleteSub(i) {
+    let confirm = this.alerCtrl.create({
+      title: "Do you want to Delete this subject Name",
+      message: this.subjects[i].subName,
+      buttons: [
+        {
+          text: "No",
+          handler: () => {
+            console.log("Disagree clicked");
+          }
+        },
+        {
+          text: "Yes",
+          handler: () => {
+            console.log("Agree clicked");
+            this.subjects.splice(i, 1);
+            this.data.saveCustomQuiz(this.subjects)
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
-    // let submodal = this.modalCtrl.create(AddSubquizPage,);
-    // submodal.onDidDismiss(sub => {
-    //   if (sub) {
-    //     this.subjects.push(sub);
-    //   }
-    // });
-    // submodal.present();
 
+  // let submodal = this.modalCtrl.create(AddSubquizPage,);
+  // submodal.onDidDismiss(sub => {
+  //   if (sub) {
+  //     this.subjects.push(sub);
+  //   }
+  // });
+  // submodal.present();
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad CreateQuizPage");

@@ -42,7 +42,7 @@ export class AddSubquizPage {
       this.view.dismiss(subDetails);
     } else {
       let alert = this.alertCtrl.create({
-        title: "Empty String",
+        title: "empty subject",
         subTitle: "Please fill out the details in form",
         buttons: ["OK"]
       });
