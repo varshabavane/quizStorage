@@ -28,7 +28,13 @@ export class ExamQuestPage {
     }
   }
   submit() {
-    this.data.saveResult(this.subject, this.counter);
+    this.data.saveResult("result", {
+      result: {
+        sub: this.subject,
+        marks: this.counter
+      }
+    });
+
     this.navCtrl.push(ResultPage);
   }
 
@@ -37,11 +43,11 @@ export class ExamQuestPage {
       if (this.ans.indexOf(a) === -1) {
         this.ans.push(a);
         this.counter = this.counter + 1;
-        console.log(this.counter)
+        console.log(this.counter);
       }
     } else {
       this.counter = this.counter;
-      console.log(this.counter)
+      console.log(this.counter);
     }
   }
 }
