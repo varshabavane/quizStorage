@@ -16,7 +16,7 @@ import { TakeQuizPage } from "../take-quiz/take-quiz";
 })
 export class ShowQuizPage {
   questions = [];
-  
+  subject;
 
   constructor(
     public navCtrl: NavController,
@@ -28,21 +28,11 @@ export class ShowQuizPage {
   ) {}
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad ShowQuizPage");
-    console.log(this.navParams.get("sub"));
+    this.subject = this.navParams.get("quiz").sub;
   }
 
   ionViewWillEnter() {
     this.questions = this.navParams.get("quiz").questions;
-    // this.data.getCustomQuiz().then(a => {
-    //   if (a) {
-    //     this.test = a;
-    //     console.log("local data: " + this.test);
-    //     //this.questions.push(this.test.d.questions);
-    //     //console.log(this.questions)
-
-    //   }
-    // });
   }
 
   addQuest() {
@@ -68,21 +58,19 @@ export class ShowQuizPage {
     });
     addModal.onDidDismiss(Quest => {
       if (Quest) {
-     
-          this.questions[i].question = Quest.question;
-          this.questions[i].optionA = Quest.optionA;
-          this.questions[i].optionB = Quest.optionB;
-          this.questions[i].optionC = Quest.optionC;
-          this.questions[i].optionD = Quest.optionD;
-          this.questions[i].ans = Quest.ans;
-        }
-     });
+        this.questions[i].question = Quest.question;
+        this.questions[i].optionA = Quest.optionA;
+        this.questions[i].optionB = Quest.optionB;
+        this.questions[i].optionC = Quest.optionC;
+        this.questions[i].optionD = Quest.optionD;
+        this.questions[i].ans = Quest.ans;
+      }
+    });
     addModal.present();
-
   }
-  
+
   deleteQ(i) {
-    let q= this.questions[i].question
+    let q = this.questions[i].question;
     let confirm = this.alertCtrl.create({
       title: "Do you want to Delete this question",
       message: this.questions[i].question,
@@ -97,7 +85,7 @@ export class ShowQuizPage {
           text: "Yes",
           handler: () => {
             console.log("Agree clicked");
-            this.questions.splice(i,1)
+            this.questions.splice(i, 1);
             this.showAlert(q);
           }
         }
@@ -107,13 +95,12 @@ export class ShowQuizPage {
   }
   showAlert(q) {
     let alert = this.alertCtrl.create({
-      title: 'quetion deleted succefully',
+      title: "quetion deleted succefully",
       subTitle: q,
-      buttons: ['OK']
+      buttons: ["OK"]
     });
     alert.present();
   }
-
 
   close() {
     this.view.dismiss();

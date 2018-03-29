@@ -15,17 +15,7 @@ export class TakeQuizPage {
   result;
   subQuizdata: SubData;
   subjects = [];
-  question=[]
-  // question = [
-  //   {
-  //     q: "",
-  //     A: "",
-  //     B: "",
-  //     C: "",
-  //     D: "",
-  //     ans: ""
-  //   }
-  // ];
+  question = [];
 
   constructor(
     public navCtrl: NavController,
@@ -37,9 +27,13 @@ export class TakeQuizPage {
 
   examQuiz(index) {
     // alert(this.subjects[index].subName)
+    // console.log(this.subjects[index].subQuestions);
     if (this.subjects[index].subQuestions) {
       this.navCtrl.push(ExamQuestPage, {
-        question: this.subjects[index].subQuestions
+        exam: {
+          question: this.subjects[index].subQuestions,
+          sub: this.subjects[index].subName
+        }
       });
     } else {
       this.navCtrl.push(ExamQuestPage);
@@ -50,12 +44,14 @@ export class TakeQuizPage {
     this.data.getCustomQuiz().then(sub => {
       if (sub) {
         for (let s in sub) {
+          // if (sub[s].subQuestions) {
           this.subQuizdata = {
             subName: sub[s].subName,
             subDesc: sub[s].subDesc,
             subQuestions: sub[s].subQuestions
           };
           this.subjects.push(this.subQuizdata);
+          // }
         }
       }
     });
@@ -70,14 +66,14 @@ export class TakeQuizPage {
     this.navCtrl.push(ResultPage);
   }
 
-  ansChck(a, i) {
-    if (a === this.question[i].ans) {
-      if (this.ans.indexOf(a) === -1) {
-        this.ans.push(a);
-        this.counter = this.counter + 1;
-      }
-    } else {
-      this.counter = this.counter;
-    }
-  }
+  // ansChck(a, i) {
+  //   if (a === this.question[i].ans) {
+  //     if (this.ans.indexOf(a) === -1) {
+  //       this.ans.push(a);
+  //       this.counter = this.counter + 1;
+  //     }
+  //   } else {
+  //     this.counter = this.counter;
+  //   }
+  // }
 }
