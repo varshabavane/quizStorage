@@ -25,7 +25,7 @@ export class CreateQuizPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public data: DataProvider,
-    public alerCtrl: AlertController
+    public alertCtrl: AlertController
   ) {}
 
   editSub(i) {
@@ -44,9 +44,10 @@ export class CreateQuizPage {
   }
 
   deleteSub(i) {
-    let confirm = this.alerCtrl.create({
+    let sub=this.subjects[i].subName
+    let confirm = this.alertCtrl.create({
       title: "Do you want to Delete this subject Name",
-      message: this.subjects[i].subName,
+      message: this.subjects[i].subjName,
       buttons: [
         {
           text: "No",
@@ -60,11 +61,20 @@ export class CreateQuizPage {
             console.log("Agree clicked");
             this.subjects.splice(i, 1);
             this.data.saveCustomQuiz(this.subjects)
+            this.showAlert(sub);
           }
         }
       ]
     });
     confirm.present();
+  }
+  showAlert(sub) {
+    let alert = this.alertCtrl.create({
+      title:'deleted succefully',
+      subTitle: sub,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   // let submodal = this.modalCtrl.create(AddSubquizPage,);

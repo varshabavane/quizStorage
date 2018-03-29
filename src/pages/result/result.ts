@@ -44,7 +44,7 @@ export class ResultPage {
     this.dataProvider.getResult('cssMarks').then(x=>{
       this.css = x;
     });
-    // this.dataProvider.getResult('Marks').then(x=>{
+    //  this.dataProvider.getResult('Marks').then(x=>{
     //   this.subMarks = x;
     // })
 
