@@ -76,13 +76,13 @@ export class ShowQuizPage {
           this.questions[i].optionD = Quest.optionD;
           this.questions[i].ans = Quest.ans;
         }
-        
-        
-    });
+     });
     addModal.present();
-  }
 
+  }
+  
   deleteQ(i) {
+    let q= this.questions[i].question
     let confirm = this.alertCtrl.create({
       title: "Do you want to Delete this question",
       message: this.questions[i].question,
@@ -98,12 +98,22 @@ export class ShowQuizPage {
           handler: () => {
             console.log("Agree clicked");
             this.questions.splice(i,1)
+            this.showAlert(q);
           }
         }
       ]
     });
     confirm.present();
   }
+  showAlert(q) {
+    let alert = this.alertCtrl.create({
+      title: 'quetion deleted succefully',
+      subTitle: q,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 
   close() {
     this.view.dismiss();
