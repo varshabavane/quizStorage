@@ -40,15 +40,24 @@ export class ResultPage {
       }
     });
     this.dataProvider.getResult("javaMarks").then(x => {
-      this.java = x;
-      console.log(x);
+      if(x){
+        this.java = x;
+        console.log(x);
+      }
+     
     });
     this.dataProvider.getResult('jsMarks').then(x => {
-      this.javascript = x;
+      if(x){
+        this.javascript = x;
+      }
+     
 
     });
     this.dataProvider.getResult('cssMarks').then(x => {
-      this.css = x;
+      if(x){
+        this.css = x;
+      }
+     
     });
 
     // console.log(this.dataProvider.getResult("result"))

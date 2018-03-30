@@ -21,6 +21,7 @@ import { TakeQuizPage } from "../pages/take-quiz/take-quiz";
 import { AddSubquizPage } from "../pages/add-subquiz/add-subquiz";
 import { ShowQuizPage } from "../pages/show-quiz/show-quiz";
 import { ExamQuestPage } from "../pages/exam-quest/exam-quest";
+import { ResultHistoryPage } from "../pages/result-history/result-history";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ExamQuestPage } from "../pages/exam-quest/exam-quest";
     TakeQuizPage,
     AddSubquizPage,
     ShowQuizPage,
-    ExamQuestPage
+    ExamQuestPage,
+    ResultHistoryPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { ExamQuestPage } from "../pages/exam-quest/exam-quest";
     TakeQuizPage,
     AddSubquizPage,
     ShowQuizPage,
-    ExamQuestPage
+    ExamQuestPage,
+    ResultHistoryPage
   ],
   providers: [
     StatusBar,
