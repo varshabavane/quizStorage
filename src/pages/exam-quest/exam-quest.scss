@@ -3,3 +3,5 @@
     font-size: 0.5px;
 
 }
+
+.item-disabled, item-disabled * { opacity: 0.3; pointer-events: none; }

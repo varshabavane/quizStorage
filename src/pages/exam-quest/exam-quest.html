@@ -37,6 +37,6 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
-  <button ion-button block outline (click)="submit()">Submit</button>
+  <button ion-button block outline (click)="submit()" [disabled]="isDisable">Submit</button>
 
 </ion-content>

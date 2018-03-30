@@ -18,6 +18,9 @@
       <ion-item *ngIf="css != '' && css != undefined" (tap)="clearResult('cssMarks')">Your Score in Css is: {{css}}</ion-item>
 
       <ion-item *ngIf="javascript != '' && javascript != undefined" (tap)="clearResult('jsMarks')">Your Score in Javascript is: {{javascript}}</ion-item>
+
+      <ion-item>Your score in {{customMarks.subName}} is : {{customMarks.mark}}
+      </ion-item>
     </ion-card-content>
     
   </ion-card>
