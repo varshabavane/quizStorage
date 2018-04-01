@@ -51,6 +51,7 @@ export class TakeQuizPage {
             subQuestions: sub[s].subQuestions
           };
           this.subjects.push(this.subQuizdata);
+          
           // }
         }
       }
@@ -62,7 +63,8 @@ export class TakeQuizPage {
   }
 
   submit() {
-    this.data.saveResult("marks", this.counter);
+    
+    this.data.saveResult("marks", this.counter && this.subjects);
     this.navCtrl.push(ResultPage);
   }
 
