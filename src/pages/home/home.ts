@@ -1,5 +1,9 @@
 import { Component } from "@angular/core";
-import { NavController, PopoverController } from "ionic-angular";
+import {
+  NavController,
+  PopoverController,
+  AlertController
+} from "ionic-angular";
 import { HtmlPage } from "../html/html";
 import { JavaPage } from "../java/java";
 import { CssPage } from "../css/css";
@@ -57,29 +61,65 @@ export class HomePage {
 /* popover page */
 
 import { ViewController } from "ionic-angular";
-import { ShowQuizPage } from "../show-quiz/show-quiz";
+
 import { ResultHistoryPage } from "../result-history/result-history";
 @Component({
   selector: "page-popoverOptn",
   template: `
   <ion-list>
-      <ion-list-header>Ionic</ion-list-header>
       <button ion-item (click)="showHistory()">show History</button>
       <button ion-item (click)="deleteHistory()">delete History</button>
-        </ion-list>
+  </ion-list>
   `
 })
 export class PopoverPage {
-  constructor(public viewCtrl: ViewController, public navCtrl:NavController) {}
+  constructor(
+    public viewCtrl: ViewController,
+    public navCtrl: NavController,
+    public alertCtrl: AlertController
+  ) {}
 
-  showHistory(){
-    this.navCtrl.push(ResultHistoryPage)
-  
+  showHistory() {
+    this.navCtrl.push(ResultHistoryPage);
   }
-  deleteHistory(){
-    alert('hello')
-  }
+  deleteHistory() {
+    let deleteAlert = this.alertCtrl.create({
+      title: "Do you want to delete your result History ? plz type 'yes'",
+      inputs: [
+        {
+          name: "key",
+          placeholder: "yes"
+        }
+      ],
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: data => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "confirm",
+          handler: result => {
+            console.log("result" + JSON.stringify(result));
+            if (result.key=== "yes") {
+              console.log("lo");
+            }
+            this.viewCtrl.dismiss();
+            // if (User.isValid(data.username, data.password)) {
+            //   // logged in!
+            // } else {
+            //   // invalid login
+            //   return false;
 
+            // }
+          }
+        }
+      ]
+    });
+    deleteAlert.present();
+  }
 
   close() {
     this.viewCtrl.dismiss();

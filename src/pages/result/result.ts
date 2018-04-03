@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, Navbar } from "ionic-angular";
+import { NavController, NavParams, Navbar,PopoverController } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 /* import for fetching values from localStorage */
 import { DataProvider } from "../../providers/data/data";
 import { PopoverPage } from "../home/home";
+//import { ResultHistoryPage } from "../result-history/result-history";
 
 @Component({
   selector: "page-result",
@@ -26,9 +27,23 @@ export class ResultPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public dataProvider: DataProvider
+    public dataProvider: DataProvider,
+    public popoverCtrl:PopoverController
   ) {}
 
+  presentPopover($event) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    let ev = {
+      target: {
+        getBoundingClientRect: () => {
+          top: "100";
+        }
+      }
+    };
+    popover.present({
+      ev
+    });
+  }
   ionViewDidEnter() {
     this.navBar.backButtonClick = () => {
       this.navCtrl.popToRoot();
