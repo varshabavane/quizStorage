@@ -20,5 +20,12 @@ export class ResultHistoryPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultHistoryPage');
   }
+  showHistory(){
+    alert('hello');
+  }
+
+  clearHistory(){
+    
+  }
 
 }

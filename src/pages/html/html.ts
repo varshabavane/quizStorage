@@ -153,7 +153,6 @@ export class HtmlPage {
     public alertCtrl: AlertController,
     public saveData: DataProvider
   ) {}
-
   // ionViewDidLoad() {
   //   console.log("ionViewDidLoad HtmlPage");
   //   // this.question = this.navParams.get('html')

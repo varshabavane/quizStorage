@@ -7,7 +7,7 @@ import { StatusBar } from "@ionic-native/status-bar";
 import { IonicStorageModule } from "@ionic/storage";
 
 import { MyApp } from "./app.component";
-import { HomePage } from "../pages/home/home";
+import { HomePage, PopoverPage } from "../pages/home/home";
 import { HtmlPage } from "../pages/html/html";
 import { JavaPage } from "../pages/java/java";
 import { DataProvider } from "../providers/data/data"; /* for storing result data */
@@ -39,7 +39,9 @@ import { ResultHistoryPage } from "../pages/result-history/result-history";
     AddSubquizPage,
     ShowQuizPage,
     ExamQuestPage,
-    ResultHistoryPage
+    ResultHistoryPage,
+    PopoverPage
+    
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { ResultHistoryPage } from "../pages/result-history/result-history";
     AddSubquizPage,
     ShowQuizPage,
     ExamQuestPage,
-    ResultHistoryPage
+    ResultHistoryPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,

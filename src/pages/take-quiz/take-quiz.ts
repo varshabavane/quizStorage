@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
-import { ResultPage } from "../result/result";
+//import { ResultPage } from "../result/result";
 import { DataProvider } from "../../providers/data/data";
 import { ExamQuestPage } from "../exam-quest/exam-quest";
 /* model for quiz data */
@@ -10,9 +10,9 @@ import { SubData } from "../../model/subData";
   templateUrl: "take-quiz.html"
 })
 export class TakeQuizPage {
-  counter = 0;
-  ans = [];
-  result;
+  // counter = 0;
+  // ans = [];
+  // result;
   subQuizdata: SubData;
   subjects = [];
   question = [];
@@ -51,7 +51,7 @@ export class TakeQuizPage {
             subQuestions: sub[s].subQuestions
           };
           this.subjects.push(this.subQuizdata);
-          
+
           // }
         }
       }
@@ -61,21 +61,4 @@ export class TakeQuizPage {
   ionViewDidLeave() {
     this.subjects.splice(0, this.subjects.length);
   }
-
-  submit() {
-    
-    this.data.saveResult("marks", this.counter && this.subjects);
-    this.navCtrl.push(ResultPage);
-  }
-
-  // ansChck(a, i) {
-  //   if (a === this.question[i].ans) {
-  //     if (this.ans.indexOf(a) === -1) {
-  //       this.ans.push(a);
-  //       this.counter = this.counter + 1;
-  //     }
-  //   } else {
-  //     this.counter = this.counter;
-  //   }
-  // }
 }

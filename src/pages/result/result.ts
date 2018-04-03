@@ -3,6 +3,7 @@ import { NavController, NavParams, Navbar } from "ionic-angular";
 import { ViewChild } from "@angular/core";
 /* import for fetching values from localStorage */
 import { DataProvider } from "../../providers/data/data";
+import { PopoverPage } from "../home/home";
 
 @Component({
   selector: "page-result",
@@ -14,18 +15,19 @@ export class ResultPage {
   java;
   javascript;
   css;
-  subMarks;
-  customMarks = {
-    subName: '',
-    mark: Number
-  }; /* for custom subject marks */
+  // subMarks;
 
+  customMarks = {
+    subName: "",
+    mark: Number
+  };
+  /* for custom subject marks */
   @ViewChild(Navbar) navBar: Navbar;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public dataProvider: DataProvider
-  ) { }
+  ) {}
 
   ionViewDidEnter() {
     this.navBar.backButtonClick = () => {
@@ -40,34 +42,53 @@ export class ResultPage {
       }
     });
     this.dataProvider.getResult("javaMarks").then(x => {
-      if(x){
+      if (x) {
         this.java = x;
         console.log(x);
       }
-     
     });
-    this.dataProvider.getResult('jsMarks').then(x => {
-      if(x){
+    this.dataProvider.getResult("jsMarks").then(x => {
+      if (x) {
         this.javascript = x;
       }
-     
-
     });
-    this.dataProvider.getResult('cssMarks').then(x => {
-      if(x){
+    this.dataProvider.getResult("cssMarks").then(x => {
+      if (x) {
         this.css = x;
       }
-     
     });
 
-    // console.log(this.dataProvider.getResult("result"))
-    //  this.dataProvider.getResult('Marks').then(x=>{
-    //   this.subMarks = x;
-    // })
-    /* For Custom Marks */
-    this.customMarks.subName = this.navParams.get('marks').subName;
-    this.customMarks.mark = this.navParams.get('marks').mark
+    console.log(this.dataProvider.getResult("result"));
 
+    this.dataProvider.getResult("result").then(x => {
+      if (x) {
+        console.log(x);
+        // this.subMarks = x;
+
+        let rec_Date = new Date(
+          Math.max.apply(
+            null,
+            x.map(d => {
+              if (d.date != undefined) {
+                return new Date(d.date);
+              }
+            })
+          )
+        );
+        x.map(a => {
+          if (a.date == rec_Date) {
+            this.customMarks.mark = a.marks;
+            this.customMarks.subName = a.subName;
+          }
+        });
+        // console.log(rec_Date);
+      }
+    });
+    /* For Custom Marks */
+    if (this.navParams.get("marks")) {
+      this.customMarks.subName = this.navParams.get("marks").subName;
+      this.customMarks.mark = this.navParams.get("marks").mark;
+    }
   }
 
   clearResult(subName) {
